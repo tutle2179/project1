@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Monami</title>
+  <link rel="stylesheet" href="{% static 'css/scroll.css' %}">
+  <script src="{% static 'js/scroll.js' %}"></script>
+</head>
+
+<body>
+  <div class="progress"><p></p></div>
+
+  <section>
+    <h1>Monami<br><br>새로운 느낌</h1>
+  </section>
+
+  <section>
+    <div id="contents">
+      <div class="new">
+        <div class="conwrap">
+          <div class="tit">
+            <h2>NEW<br />ARRIVALS</h2>
+            <h3>가장 먼저 만나는 설레는 기다림</h3>
+          </div>
+
+          <div class="toparea">
+            {% for product in products|slice:":2" %}
+            <div class="box">
+              <a href="{{ product.link }}">
+                <img src="{{ product.image }}" alt="{{ product.name }}">
+                <div class="ondiv">
+                  <div class="align">
+                    <div class="cate">{{ product.category }}</div>
+                    <div class="name">{{ product.name }}</div>
+                    <div class="plus"><div></div><div></div></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+
+          <div class="btmarea">
+            {% for product in products|slice:"2:" %}
+            <div class="box">
+              <a href="{{ product.link }}">
+                <img src="{{ product.image }}" alt="{{ product.name }}">
+                <div class="ondiv">
+                  <div class="align">
+                    <div class="cate">{{ product.category }}</div>
+                    <div class="name">{{ product.name }}</div>
+                    <div class="plus"><div></div><div></div></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-container">
+    <video loop muted autoplay class="bgvid">
+      <source src="https://dfrkkcv2hg1jc.cloudfront.net/data/video/monami_brand_web_60.mp4" type="video/mp4">
+      <source src="https://dfrkkcv2hg1jc.cloudfront.net/data/video/monami_brand_web_60.ogv" type="video/ogv">
+      브라우저가 비디오를 지원하지 않습니다.
+    </video>
+  </section>
+
+  <div class="last-section">
+    <h3>Monami</h3>
+    <footer>
+      <nav>
+        <a href="#">홈</a>
+        <a href="#">회사 소개</a>
+        <a href="#">서비스</a>
+        <a href="#">문의하기</a>
+      </nav>
+    </footer>
+    <h4>&copy; 2025 Your Company. All rights reserved.</h4>
+  </div>
+</body>
+</html>

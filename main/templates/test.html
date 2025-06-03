@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ monami_title }}</title>
+  
+  <!-- 동적 정적파일 경로 -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+  <!-- 외부 CDN 링크는 그대로 유지 -->
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</head>
+
+<body>
+  <div class="loader">
+    <marquee direction="right" scrollamount="10">Innovation begins with a single stroke. At Monami, we create more
+      than just pens—we create inspiration. Every line tells a story, and every color ignites creativity. Welcome
+      to a world where ideas become reality.</marquee>
+    <marquee direction="left" scrollamount="30">Every masterpiece begins with a simple line. At Monami, we believe
+      in the power of creativity. From your first sketch to your final masterpiece, we bring color to your world.
+      Let your imagination run free</marquee>
+    <marquee direction="right" scrollamount="20">A pen is more than just a tool—it’s an expression of creativity.
+      For decades, Monami has been inspiring ideas. Whether you write, draw, or create, we are here to make every
+      stroke meaningful. Welcome to Monami.</marquee>
+    <marquee scrollamount="40">Great ideas start with a single stroke. For over half a century, Monami
+      has been inspiring creativity. From simple sketches to groundbreaking innovations, we are here to bring your
+      ideas to life. Let’s create together</marquee>
+    <div class="intro">
+      <h1 class="intro-title">Monami</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="logo">{{ monami_title }}</div>
+    <div class="container-left">
+      <div class="lang">en | ko</div>
+
+      <div class="left-img-cap">
+        <span>NEW</span><br />
+        ARRIVALS
+      </div>
+      <div class="container-left-img"></div>
+      <div class="left-img-btn">
+        <span>MONAMImall<br><a href="{% url 'second' %}">바로가기</a></span>
+      </div>
+      <div class="left-bottom-text">
+        Collaborations
+      </div>
+      <div class="social-media">
+        <ul>
+          {% for sns in sns_links %}
+          <li>
+            <a href="{{ sns.link }}">
+              <img src="{{ sns.img }}" alt="">
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="container-right">
+      <div class="right-upper-text"></div>
+      <div class="right-bottom-text">
+        New talents
+      </div>
+    </div>
+  </div>
+
+  <!-- 동적 JS 경로 -->
+  <script src="{% static 'js/common.js' %}"></script>
+</body>
+
+</html>
